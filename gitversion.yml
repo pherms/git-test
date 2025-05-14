@@ -16,6 +16,7 @@ branches:
     mode: ContinuousDelivery
     increment: Inherit # Ensures feature merges bump minor version
     track-merge-target: true # Tracks feature merges for increments
+    track-merge-message: true
     tracks-release-branches: false
     is-release-branch: true
     is-main-branch: true
