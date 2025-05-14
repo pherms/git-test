@@ -68,7 +68,7 @@ branches:
   hotfix:
     mode: ManualDeployment
     label: "{BranchName}"
-    increment: Inherit
+    increment: Patch
     prevent-increment:
       when-current-commit-tagged: false
     track-merge-message: true
@@ -82,7 +82,7 @@ branches:
   bugfix:
     mode: ManualDeployment
     label: "{BranchName}"
-    increment: Inherit
+    increment: Patch
     prevent-increment:
       when-current-commit-tagged: false
     track-merge-message: true
