@@ -21,7 +21,7 @@ strategies:
 branches:
   main:
     label: ""
-    increment: Patch
+    increment: Minor
     prevent-increment:
       of-merged-branch: true
     track-merge-target: false
@@ -59,6 +59,20 @@ branches:
       when-current-commit-tagged: false
     track-merge-message: true
     regex: ^features?[\/-](?<BranchName>.+)
+    source-branches:
+      - main
+      - release
+    is-source-branch-for: []
+    is-main-branch: false
+    pre-release-weight: 30000
+  hotfix:
+    mode: ManualDeployment
+    label: "{BranchName}"
+    increment: Inherit
+    prevent-increment:
+      when-current-commit-tagged: false
+    track-merge-message: true
+    regex: ^bugfix\/|^hotfix\/
     source-branches:
       - main
       - release
