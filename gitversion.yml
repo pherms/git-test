@@ -11,17 +11,8 @@ commit-date-format: "yyyy-MM-dd"
 tag-prefix: ""
 
 branches:
-  master:
-    regex: ^master$
-    mode: ContinuousDelivery
-    increment: Inherit # Ensures feature merges bump minor version
-    track-merge-target: true # Tracks feature merges for increments
-    tracks-release-branches: false
-    is-release-branch: true
-    is-main-branch: true
-
   main:
-    regex: ^main$
+    regex: ^main$|^master$
     mode: ContinuousDelivery
     increment: Inherit # Ensures feature merges bump minor version
     track-merge-target: true # Tracks feature merges for increments
