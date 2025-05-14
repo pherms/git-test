@@ -1,0 +1,66 @@
+mode: ContinuousDelivery
+major-version-bump-message: "^breaking:"
+minor-version-bump-message: "^feature:"
+patch-version-bump-message: "^fix:"
+no-bump-message: "^skip:"
+assembly-versioning-scheme: MajorMinorPatch
+assembly-file-versioning-scheme: MajorMinorPatchTag
+increment: Inherit
+commit-message-incrementing: Enabled
+commit-date-format: "yyyy-MM-dd"
+tag-prefix: ""
+
+branches:
+  master:
+    regex: ^master$
+    mode: ContinuousDelivery
+    increment: Inherit # Ensures feature merges bump minor version
+    track-merge-target: true # Tracks feature merges for increments
+    tracks-release-branches: false
+    is-release-branch: true
+    is-main-branch: true
+
+  main:
+    regex: ^main$
+    mode: ContinuousDelivery
+    increment: Inherit # Ensures feature merges bump minor version
+    track-merge-target: true # Tracks feature merges for increments
+    tracks-release-branches: false
+    is-release-branch: true
+    is-main-branch: true
+
+  feature:
+    regex: ^features?[\/-](?<BranchName>.+)
+    mode: ContinuousDelivery
+    increment: Minor
+    track-merge-target: true # Ensure merges into `master` cause minor bumps
+    tracks-release-branches: false
+    is-release-branch: false
+    source-branches:
+      - main
+      - master
+
+  bugfix:
+    regex: ^bugfix\/|^hotfix\/
+    mode: ContinuousDelivery
+    increment: Patch # Ensures bugfix branches trigger patch increments
+    track-merge-target: true
+    tracks-release-branches: false
+    is-release-branch: false
+    source-branches:
+      - main
+      - master
+
+  release:
+    regex: ^release\/
+    mode: ContinuousDelivery
+    increment: None # Ensures no automatic increments
+    track-merge-target: false
+    tracks-release-branches: false
+    is-release-branch: true
+    source-branches:
+      - main
+      - master
+
+ignore:
+  sha: []

@@ -1,0 +1,12 @@
+# Heading
+
+Testing a bugfix
+Testing bug 2
+new feature
+add another feature
+testing bump message
+TEsting2
+Testing3
+Testing4
+Testing5
+Testing6
