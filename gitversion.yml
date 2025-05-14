@@ -20,7 +20,7 @@ branches:
     is-release-branch: true
 
   feature:
-    regex: ^feature\/
+    regex: ^features?[\/-](?<BranchName>.+)
     mode: ContinuousDelivery
     increment: Minor # Ensures minor increments for feature branches
     track-merge-target: true # Ensures merge increments carry over
@@ -29,7 +29,7 @@ branches:
     source-branches: ["main"]
 
   bugfix:
-    regex: ^bugfix\/|^hotfix\/
+    regex: ^bugfix(es)?[\/-](?<BranchName>.+)|^hotfix(es)?[\/-](?<BranchName>.+)
     mode: ContinuousDelivery
     increment: Patch # Ensures patch increments for bugfix/hotfix branches
     track-merge-target: true # Allows patches to merge properly
