@@ -12,7 +12,7 @@ branches:
     is-mainline: true
     source-branches: []
     track-merge-target: false
-	tracks-release-branches: false
+	  tracks-release-branches: false
     is-release-branch: false
   
   feature:
@@ -21,7 +21,7 @@ branches:
     source-branches: ['main']
     increment: Minor
     is-mainline: false
-	track-merge-target: false
+	  track-merge-target: false
     tracks-release-branches: false
     is-release-branch: false
   
