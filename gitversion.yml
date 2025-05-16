@@ -4,6 +4,7 @@ minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch)'
 no-bump-message: '\+semver:\s?(none|skip)'
 tag-prefix: ""
+Increment: Inherit
 
 branches:
   main:
@@ -14,6 +15,7 @@ branches:
     track-merge-target: false
     tracks-release-branches: false
     is-release-branch: false
+    is-main-branch: true
 
   feature:
     regex: ^feature/
@@ -23,6 +25,7 @@ branches:
     track-merge-target: false
     tracks-release-branches: false
     is-release-branch: false
+    is-main-branch: false
 
   hotfix:
     regex: ^hotfix/
@@ -32,6 +35,7 @@ branches:
     track-merge-target: false
     tracks-release-branches: false
     is-release-branch: false
+    is-main-branch: false
 
 ignore:
   sha: []
