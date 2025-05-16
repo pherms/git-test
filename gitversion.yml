@@ -1,44 +1,40 @@
-mode: Mainline
+mode: ContinuousDeployment
 major-version-bump-message: '\+semver:\s?(breaking|major)'
 minor-version-bump-message: '\+semver:\s?(feature|minor)'
 patch-version-bump-message: '\+semver:\s?(fix|patch)'
 no-bump-message: '\+semver:\s?(none|skip)'
+tag-prefix: ""
 
 branches:
   main:
     regex: ^main$
-    tag: ''
+    label: ""
     increment: Patch
-    is-mainline: true
     source-branches: []
     track-merge-target: false
-	  tracks-release-branches: false
-    is-release-branch: false
-  
-  feature:
-    regex: ^feature/
-    tag: 'feature-{BranchName}'
-    source-branches: ['main']
-    increment: Minor
-    is-mainline: false
-	  track-merge-target: false
     tracks-release-branches: false
     is-release-branch: false
-  
+
+  feature:
+    regex: ^feature/
+    label: "feature-{BranchName}"
+    source-branches: ["main"]
+    increment: Minor
+    track-merge-target: false
+    tracks-release-branches: false
+    is-release-branch: false
+
   hotfix:
     regex: ^hotfix/
-    tag: 'hotfix-{BranchName}'
-    source-branches: ['main']
+    label: "hotfix-{BranchName}"
+    source-branches: ["main"]
     increment: Patch
-    is-mainline: false
     track-merge-target: false
     tracks-release-branches: false
     is-release-branch: false
 
 ignore:
   sha: []
-
-
 # mode: ContinuousDelivery
 # major-version-bump-message: "^breaking:"
 # minor-version-bump-message: "^feature:"
