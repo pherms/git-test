@@ -54,7 +54,7 @@ branches:
   feature:
     mode: ManualDeployment
     label: "{BranchName}"
-    increment: Inherit
+    increment: Minor
     prevent-increment:
       when-current-commit-tagged: false
     track-merge-message: true
